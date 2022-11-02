@@ -37,7 +37,11 @@ const userSchema = new Schema({
 		enum: Object.keys(roles).map(key => roles[key]),
 		default: roles.USER,
 		required: false
-	}
+	},
+	imageUrl: {
+		type: Schema.Types.String,
+		required: false,
+	},
 }, {timestamps: true});
 
 

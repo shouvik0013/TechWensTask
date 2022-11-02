@@ -17,13 +17,19 @@ POST http://localhost:4000/users/login
 Content-Type: application/json
 
 {
-	"email": "test1@gmail.com",
+	"email": "admin1@gmail.com",
 	"password": "blaeuionk"
 }
 
 
 ### GET ALL USERS
 GET http://localhost:4000/users/
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzYyNDc0ODYwMDViNWQzODM4YzhlM2UiLCJlbWFpbCI6InRlc3QxQGdtYWlsLmNvbSIsImlhdCI6MTY2NzM4NjYwOCwiZXhwIjoxNjY3MzkwMjA4fQ.fuyOih4NGj4hPrgxgvLIg0rY7RolLU-L0k2r-L7IzAU
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzYyNDcyNTYwMDViNWQzODM4YzhlMzgiLCJlbWFpbCI6ImFkbWluMUBnbWFpbC5jb20iLCJpYXQiOjE2NjczODcyODcsImV4cCI6MTY2NzM5MDg4N30.Z1QN64fYGOUX8tpjtqydWG8mjpziHiMxCu3Fd893yro
+Content-Type: application/json
+
+
+### Get Own info
+GET http://localhost:4000/users/myinfo
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzYyNDc0ODYwMDViNWQzODM4YzhlM2UiLCJlbWFpbCI6InRlc3QxQGdtYWlsLmNvbSIsImlhdCI6MTY2NzM4ODAyNiwiZXhwIjoxNjY3MzkxNjI2fQ.lnopMvrcaHZtq2XD2tgKEeMRxV84wWqWly-OOLqbCEo
 Content-Type: application/json
 

@@ -1,6 +1,8 @@
 const express = require('express');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const os = require("os");
+const osType = os.type();
 
 /* LOCAL PACKAGES */
 const { SuccessResponse, ErrorResponse } = require('../utils/response');
@@ -29,15 +31,16 @@ exports.postSignup = async (req, res, next) => {
     return next(error);
   }
 
-	console.log('>>>>>>>>>>This line executed');
+  console.log('>>>>>>>>>>This line executed');
 
   const email = req.body?.email;
   const firstName = req.body?.first_name;
   const lastName = req.body?.last_name;
   const phone = +req.body?.phone;
   const password = req.body?.password;
-	const role = req.body.role ? req.body.role : roles.USER;
-
+  const role = req.body.role ? req.body.role : roles.USER;
+  const imageUrl =
+    osType === 'Windows_NT' ? req.file.path.replace('\\', '/') : req.file.path; // IT IS THE PATH WHERE MULTER STORED THE IMAGE FILE
 
   try {
     // GENERATING PASSWORD HASH
@@ -50,7 +53,8 @@ exports.postSignup = async (req, res, next) => {
       lastName: lastName,
       phone: phone,
       password: hashedPassword,
-			role: role
+      role: role,
+			imageUrl: imageUrl
     });
 
     const savedNewUser = await newUser.save();
@@ -148,15 +152,3 @@ module.exports.postLogin = async (req, res, next) => {
     });
   }
 };
-
-
-/**
- *
- * @param {express.Request} req
- * @param {express.Response} res
- * @param {express.NextFunction} next
- */
-module.exports.getAllUsers = (req, res, next) => {
-	console.log(req.isAdmin);
-	return SuccessResponse({res, data: req.isAdmin});
-}
