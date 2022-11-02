@@ -1,0 +1,29 @@
+### Signin Request
+POST http://localhost:4000/users/signup
+Content-Type: application/json
+
+{
+	"first_name": "Test",
+	"last_name": "One",
+	"email": "test1@gmail.com",
+	"phone": 9999899999,
+	"password": "blaeuionk",
+	"role": "user"
+} 
+
+
+### Login request
+POST http://localhost:4000/users/login
+Content-Type: application/json
+
+{
+	"email": "test1@gmail.com",
+	"password": "blaeuionk"
+}
+
+
+### GET ALL USERS
+GET http://localhost:4000/users/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzYyNDc0ODYwMDViNWQzODM4YzhlM2UiLCJlbWFpbCI6InRlc3QxQGdtYWlsLmNvbSIsImlhdCI6MTY2NzM4NjYwOCwiZXhwIjoxNjY3MzkwMjA4fQ.fuyOih4NGj4hPrgxgvLIg0rY7RolLU-L0k2r-L7IzAU
+Content-Type: application/json
+

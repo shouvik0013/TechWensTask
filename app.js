@@ -5,6 +5,8 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+const {ErrorResponse, SuccessResponse} = require('./utils/response')
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 

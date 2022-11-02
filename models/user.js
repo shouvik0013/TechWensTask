@@ -1,4 +1,10 @@
-import mongoose, { Schema, SchemaTypes, Types } from 'mongoose';
+const mongoose = require('mongoose');
+const {Schema, SchemaType, Types} = mongoose;
+
+const roles = {
+	ADMIN: 'admin',
+	USER: 'user'
+}
 
 const userSchema = new Schema({
 	firstName: {
@@ -21,9 +27,20 @@ const userSchema = new Schema({
 	phone: {
 		type: Schema.Types.Number,
 		required: true 
+	},
+	password: {
+		type: Schema.Types.String,
+		required: true
+	},
+	role: {
+		type: Schema.Types.String,
+		enum: Object.keys(roles).map(key => roles[key]),
+		default: roles.USER,
+		required: false
 	}
-})
+}, {timestamps: true});
 
 
 const user = mongoose.model('User', userSchema);
-module.exports = user;
+module.exports.user = user;
+module.exports.roles = roles;
